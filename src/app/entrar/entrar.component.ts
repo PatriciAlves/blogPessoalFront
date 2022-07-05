@@ -23,7 +23,7 @@ export class EntrarComponent implements OnInit {
     window.scroll(0, 0)
   }
 
-  entrar() {
+  entrar(){
     this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin)=>{
       this.usuarioLogin = resp
       environment.token = this.usuarioLogin.token
