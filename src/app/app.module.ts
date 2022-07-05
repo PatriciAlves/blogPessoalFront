@@ -9,6 +9,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InicioComponent } from './inicio/inicio.component';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     RodapeComponent,
     CadastrarComponent,
-    EntrarComponent
+    EntrarComponent,
+    InicioComponent
   
   ],
   imports: [
