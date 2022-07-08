@@ -11,6 +11,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
+import { TemaComponent } from './tema/tema.component';
 
 
 
@@ -21,7 +22,8 @@ import { InicioComponent } from './inicio/inicio.component';
     RodapeComponent,
     CadastrarComponent,
     EntrarComponent,
-    InicioComponent
+    InicioComponent,
+    TemaComponent
   
   ],
   imports: [
