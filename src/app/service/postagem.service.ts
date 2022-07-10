@@ -16,9 +16,19 @@ export class PostagemService {
   }
 
   getAllPostagens(): Observable<Postagem[]>{
-    return this.http.get<Postagem[]>('http://localhost:8080/postagens', this.token)
+    return this.http.get<Postagem[]>('https://blogpati.herokuapp.com/postagens', this.token)
   }
+  getByIdPostagem(id: number): Observable<Postagem>{
+    return this.http.get<Postagem>(`https://blogpati.herokuapp.com/postagens/${id}`, this.token)
+  }
+
   postPostagens(postagem: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>('http://localhost:8080/postagens', postagem, this.token)
+    return this.http.post<Postagem>('https://blogpati.herokuapp.com/postagens', postagem, this.token)
+  }
+  putPostagens(postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>('https://blogpati.herokuapp.com/postagens', postagem, this.token)
+  }
+  deletePostagem(id: number){
+    return this.http.delete(`https://blogpati.herokuapp.com/postagens/${id}`, this.token)
   }
 }

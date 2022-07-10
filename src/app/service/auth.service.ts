@@ -14,16 +14,16 @@ export class AuthService {
 
  
 
+  entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
+    return this.http.post<UsuarioLogin>('https://blogpati.herokuapp.com/usuarios/login', usuarioLogin)
+  }
   cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('http://localhost:8080/usuarios/cadastrar', usuario)
+    return this.http.post<Usuario>('https://blogpati.herokuapp.com/usuarios/cadastrar', usuario)
   }
 
-  entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('http://localhost:8080/usuarios/login', usuarioLogin)
-  }
 
   getByIdUsuario(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
+    return this.http.get<Usuario>(`https://blogpati.herokuapp.com/usuarios/${id}`)
   }
 
   logado(){
