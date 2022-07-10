@@ -30,8 +30,9 @@ export class InicioComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(){
-    if(environment.token==''){
+  ngOnInit() {
+    window.scroll(0,0)
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
       alert('Sua sessão expirou, faça novamente o login para continuar navegando.')
     }
@@ -39,34 +40,34 @@ export class InicioComponent implements OnInit {
     this.getAllPostagens()
   }
 
- getAllTema(){
-    this.temaService.getAllTema().subscribe((resp: Tema[])=>{
+  getAllTema() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
-  findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema)=>{
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=>{
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
-  findByIdUsuario(){
-    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario)=>{
+  findByIdUsuario() {
+    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
   }
-  publicar(){
+  publicar() {
     this.tema.id = this.idTema
-    this.postagem.tema= this.tema
+    this.postagem.tema = this.tema
 
     this.usuario.id = this.idUsuario
     this.postagem.usuario = this.usuario
 
-    this.postagemService.postPostagens(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagemService.postPostagens(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem postada com sucesso!')
       this.postagem = new Postagem()
