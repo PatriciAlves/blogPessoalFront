@@ -21,6 +21,9 @@ export class PostagemService {
   getByIdPostagem(id: number): Observable<Postagem>{
     return this.http.get<Postagem>(`https://blogpati.herokuapp.com/postagens/${id}`, this.token)
   }
+  getByTituloPostagem(titulo: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`https://blogpati.herokuapp.com/postagens/titulo/${titulo}`, this.token)
+  }
 
   postPostagens(postagem: Postagem): Observable<Postagem>{
     return this.http.post<Postagem>('https://blogpati.herokuapp.com/postagens', postagem, this.token)
@@ -31,4 +34,5 @@ export class PostagemService {
   deletePostagem(id: number){
     return this.http.delete(`https://blogpati.herokuapp.com/postagens/${id}`, this.token)
   }
+
 }

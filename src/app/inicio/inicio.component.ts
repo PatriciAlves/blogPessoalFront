@@ -15,7 +15,7 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
- 
+
 
   postagem: Postagem = new Postagem()
   tema: Tema = new Tema()
@@ -24,6 +24,8 @@ export class InicioComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
   listaPostagens: Postagem[]
+  tituloPost: string
+  nomeTema: string
 
   key = 'data'
   reverse = true
@@ -34,11 +36,12 @@ export class InicioComponent implements OnInit {
     private temaService: TemaService,
     private authService: AuthService,
     private alertas: AlertasService,
-  
+
+
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
       alert('Sua sessão expirou, faça novamente o login para continuar navegando.')
@@ -81,5 +84,24 @@ export class InicioComponent implements OnInit {
       this.getAllPostagens()
     })
   }
+  findByTituloPostagem() {
+    if (this.tituloPost == '') {
+      this.getAllPostagens()
+    } else {
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) => {
+        this.listaPostagens = resp
+      })
+    }
+  }
+  findByNomeTema(){
+    if (this.nomeTema == '') {
+      this.getAllTema()
+    } else {
+      this.temaService.getByNomeTema(this.tituloPost).subscribe((resp: Tema[]) => {
+        this.listaTemas = resp
+      })
+    }
+  }
 
+  
 }
