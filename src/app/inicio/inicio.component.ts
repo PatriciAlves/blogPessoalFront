@@ -15,6 +15,7 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+ 
 
   postagem: Postagem = new Postagem()
   tema: Tema = new Tema()
@@ -23,6 +24,9 @@ export class InicioComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
   listaPostagens: Postagem[]
+
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
