@@ -13,7 +13,7 @@
       <li class="nav-item pl-3">
         <p class="m-0 font-weigth-bold text-white fs-16">Olá, {{nome}}</p>
       </li>
-      <li class="nav-item pl-3">
+      <li *ngIf='auth.adm()'class="nav-item pl-3">
         <a [routerLink]="['/usuario-edit', id]">
           <i class="fa fa-pencil-square-o text-white fs-16" aria-hidden="true"></i>
         </a>
@@ -21,8 +21,8 @@
     </ul>
 
     <ul class="navbar-nav ml-auto d-flex align-items-center">
-      <li class="nav-item pl-3 text-white fs-16">
-        <a (click)="sair()" m-0 font-weigth-bold text-white fs-16> Sair <i class="fa fa-sign-out"></i></a>
+      <li class="nav-item pl-3 text-white fs-16" >
+        <a (click)="sair()" m-0 font-weigth-bold text-white fs-16> <i class="fa fa-sign-out"></i></a>
       </li>
     </ul>
 
