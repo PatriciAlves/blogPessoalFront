@@ -4,9 +4,9 @@
             <h1 class="text-center text-secondary mt-5 mb-5">Atualizar meu Perfil</h1>
         </div>
     </div>
+
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
-            <h1 class="text-center"></h1>
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input [(ngModel)]="usuario.nome" class="form-control" type="text" name="nome" id="nome"
@@ -36,7 +36,8 @@
 
             <div class="form-group">
                 <label for="tipo">Tipo de Usuário</label>
-                <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                <select class="form-control" name="tipo" id="tipo" 
+                (change)='tipoUser($event)'>
                     <option>Escolha o tipo de usuário</option>
                     <option value="membro">Membro</option>
                     <option value="adm">Administrador</option>
@@ -44,10 +45,11 @@
             </div>
             <br>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-success mr-4 " (click)='atualizar()'>Atualizar
+                <button type="submit" class="btn btn-success mr-4 " 
+                (click)='atualizar()'>Atualizar
                 </button>
 
-                <button routerLink='/inicio' type="submit" class="btn           btn-danger ">Cancelar
+                <button routerLink='/inicio' type="submit" class="btn btn-danger ">Cancelar
                 </button>
 
             </div>

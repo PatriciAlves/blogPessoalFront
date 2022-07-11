@@ -12,18 +12,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
- 
+  token ={
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
 
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('https://blogpati.herokuapp.com/usuarios/login', usuarioLogin)
+    return this.http.post<UsuarioLogin>('https://blogpati.herokuapp.com/usuarios/login', usuarioLogin, this.token)
   }
   cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('https://blogpati.herokuapp.com/usuarios/cadastrar', usuario)
+    return this.http.post<Usuario>('https://blogpati.herokuapp.com/usuarios/cadastrar', usuario, this.token)
   }
 
 
   getByIdUsuario(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://blogpati.herokuapp.com/usuarios/${id}`)
+    return this.http.get<Usuario>(`https://blogpati.herokuapp.com/usuarios/${id}`, this.token)
   }
 
   logado(){

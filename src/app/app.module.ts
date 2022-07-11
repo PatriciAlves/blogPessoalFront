@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ModalModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,9 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 
+
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+import { AlertasComponent } from './alertas/alertas.component';
 
 
 
@@ -34,7 +37,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     TemaDeleteComponent,
     PostagemEditComponent,
     PostagemDeleteComponent,
-    UsuarioEditComponent
+    UsuarioEditComponent,
+    AlertasComponent
   
   ],
   imports: [
@@ -42,6 +46,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ModalModule.forRoot()
+    
 
   ],
   providers: [{

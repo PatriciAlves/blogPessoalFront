@@ -14,10 +14,12 @@ export class TemaService {
   token ={
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  
   getAllTema(): Observable<Tema[]>{
     return this.http.get<Tema[]>('https://blogpati.herokuapp.com/temas',this.token)
 
   }
+
   getByIdTema(id: number): Observable<Tema>{
     return this.http.get<Tema>(`https://blogpati.herokuapp.com/temas/${id}`,this.token)
   }
@@ -29,7 +31,8 @@ export class TemaService {
   putTema(tema: Tema): Observable<Tema>{
     return this.http.put<Tema>('https://blogpati.herokuapp.com/temas', tema, this.token)
   }
+  
   deleteTema(id:number){
     return this.http.delete(`https://blogpati.herokuapp.com/temas/${id}`, this.token)
-  }
+  } 
 }
