@@ -22,6 +22,9 @@ export class AuthService {
   cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>('https://blogpati.herokuapp.com/usuarios/cadastrar', usuario, this.token)
   }
+  atualizar(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>('https://blogpati.herokuapp.com/usuarios/atualiza', usuario, this.token)
+  }
 
 
   getByIdUsuario(id: number): Observable<Usuario>{
